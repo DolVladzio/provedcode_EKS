@@ -3,11 +3,6 @@
 # Directory Structure
 ```bash
 ~/provedcode_EKS
-├── k8s
-│   ├── app-config.yml
-│   ├── deployments
-│   ├── launch_kubernetes.sh
-│   └── services
 └── terraform
     ├── main.tf
     ├── modules
