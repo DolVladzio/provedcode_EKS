@@ -26,17 +26,14 @@ jobs:
         terraform_version: 1.4.0
     ######################################################
     - name: Configure/Initialize/Validate Terraform
-      working-directory: ./EKS/terraform
       run: terraform init && terraform validate && terraform plan
     ######################################################
     # - name: Run Terraform
-    #   working-directory: ./EKS/terraform
     #   run: terraform apply --auto-approve
     ######################################################
     # - name: Wait 2m to launch k8s locally
     #   run: sleep 120
     # ######################################################
     # - name: Deleting everything
-    #   working-directory: ./EKS/terraform
     #   run: terraform destroy --auto-approve
     ######################################################
