@@ -28,11 +28,11 @@ jobs:
     - name: Configure/Initialize/Validate Terraform
       run: terraform init && terraform validate && terraform plan
     ######################################################
-    # - name: Run Terraform
-    #   run: terraform apply --auto-approve
+    - name: Run Terraform
+      run: terraform apply --auto-approve
     # ######################################################
-    # - name: Deleting everything
-    #   run: terraform destroy --auto-approve
+    - name: Deleting everything
+      run: terraform destroy --auto-approve
     ######################################################
     - name: Trigger CI/CD Workflow
       if: ${{ success() }}
