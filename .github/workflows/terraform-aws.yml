@@ -30,10 +30,15 @@ jobs:
     ######################################################
     # - name: Run Terraform
     #   run: terraform apply --auto-approve
-    ######################################################
-    # - name: Wait 2m to launch k8s locally
-    #   run: sleep 120
     # ######################################################
     # - name: Deleting everything
     #   run: terraform destroy --auto-approve
     ######################################################
+    - name: Trigger CI/CD Workflow
+      if: ${{ success() }}
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.ACCESS_REPO_TOKEN }}" \
+          https://api.github.com/repos/DolVladzio/provedcode_CI-CD/dispatches \
+          -d '{"event_type": "trigger-ci-cd"}'
